@@ -52,6 +52,19 @@
 ; containing every element that appears in both lists, exactly once.
 (define (inter a b)
   (if (null? a)
-      null
-      (
-      
+      '()
+      (if (member (car a) b)
+          (cons (car a) (inter (cdr a) b))
+          (inter (cdr a) b))))
+
+(define c (list 2 3 4 5 6 7 8))
+(inter c l)
+
+; Write a procedure noatoms that takes a list and returns the number of atoms it contains.
+(define (noatoms l)
+  (if (null? l)
+      0
+      (+ 1 (noatoms (cdr l)))))
+
+(noatoms l)
+
